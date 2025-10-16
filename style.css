@@ -923,4 +923,73 @@ body::before {
             .ofertas-actions .btn {
                 width: 100%;
             }
+
         }
+
+
+/* =================== NAVEGAÇÃO MOBILE =================== */
+
+/* Esconder o botão do menu (hambúrguer) em telas grandes */
+.menu-toggle {
+    display: none; 
+}
+
+@media (max-width: 900px) { /* Geralmente, 900px ou 768px é o ponto de quebra */
+    
+    /* Mostrar o botão do menu (hambúrguer) no celular */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--vermelho-principal);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    /* Transformar o menu em coluna, posicionar e esconder por padrão */
+    .main-nav .nav-list {
+        display: none; /* Esconde a lista de navegação por padrão */
+        position: absolute;
+        top: 100%; /* Posiciona abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: var(--fundo-3d);
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid #ddd;
+        z-index: 1000;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilo dos itens no menu mobile */
+    .main-nav .nav-list li {
+        margin: 5px 0;
+    }
+
+    .main-nav .nav-list li a {
+        padding: 10px 20px;
+        display: block;
+        color: var(--texto-escuro);
+        transition: background-color 0.3s;
+    }
+    
+    .main-nav .nav-list li a:hover,
+    .main-nav .nav-list li a.active {
+        background-color: var(--vermelho-principal);
+        color: var(--fundo-base);
+    }
+    
+    /* Mostrar o menu quando a classe 'active' for adicionada pelo JavaScript */
+    .main-nav .nav-list.active {
+        display: flex;
+    }
+    
+    /* Garantir que o conteúdo do header se ajuste */
+    .header-content {
+        justify-content: space-between;
+        align-items: center;
+        display: flex; /* Garante que logo e botão fiquem na mesma linha */
+    }
+}
